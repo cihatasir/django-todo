@@ -2,5 +2,9 @@ from django.shortcuts import render, redirect
 from todo.models import TodoModel
 
 def base(request):
-    return render(request, "base.html", {})
+    todos = TodoModel.objects.all()
+
+    return render(request, "base.html", {
+        'todos':todos
+    })
     
